@@ -8,6 +8,8 @@ describe("Checkpointing / Reverting", function() {
   var accounts;
   var web3 = new Web3();
   var startingBalance;
+  var startingTime;
+
   var snapshotId;
 
   before("create provider", function() {
@@ -31,6 +33,7 @@ describe("Checkpointing / Reverting", function() {
       gas: 90000
     }, function() {
       // Since transactions happen immediately, we can assert the balance.
+
       web3.eth.getBalance(accounts[0], function(err, balance) {
         if (err) return done(err);
 
@@ -41,17 +44,22 @@ describe("Checkpointing / Reverting", function() {
 
         startingBalance = balance;
 
-        // Now checkpoint.
-        provider.sendAsync({
-          jsonrpc: "2.0",
-          method: "evm_snapshot",
-          params: [],
-          id: new Date().getTime()
-        }, function(err, result) {
-          if (err) return done(err);
-          snapshotId = result.result;
-          done();
-        });
+        web3.eth.getBlock('latest', function(err, block){
+          if(err) return done(err)
+          startingTime = block.timestamp
+
+          // Now checkpoint.
+          provider.sendAsync({
+            jsonrpc: "2.0",
+            method: "evm_snapshot",
+            params: [],
+            id: new Date().getTime()
+          }, function(err, result) {
+            if (err) return done(err);
+            snapshotId = result.result;
+            done();
+          });
+        })
       })
     });
   });
@@ -99,7 +107,14 @@ describe("Checkpointing / Reverting", function() {
 
               assert.equal(receipt, null, "Receipt should be null as it should have been removed");
 
-              done();
+              web3.eth.getBlock('latest', function(err, block) {
+                if (err) return done(err)
+
+                var curTime = block.timestamp
+                assert.equal(startingTime, curTime, "timestamps of reversion not equal to initial snapshot time");
+
+                done();
+              });
             });
           });
         });
