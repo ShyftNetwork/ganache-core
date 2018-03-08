@@ -55,6 +55,9 @@ Both `.provider()` and `.server()` take a single object which allows you to spec
 * `"unlocked_accounts"`: `Array` - array of addresses or address indexes specifying which accounts should be unlocked.
 * `"db_path"`: `String` - Specify a path to a directory to save the chain database. If a database already exists, that chain will be initialized instead of creating a new one.
 * `"db"`: `Object` - Specify an alternative database instance, for instance [MemDOWN](https://github.com/level/memdown).
+* `"ws"`: Enable a websocket server. This is `true` by default.
+* `"vmErrorsOnRPCResponse"`: Whether to report runtime errors from EVM code as RPC errors. This is `true` by default to replicate the error reporting behavior of previous versions of ganache.
+* `"hdPath"`: The hierarchical deterministic path to use when generating accounts. Default: "m/44'/60'/0'/0/"
 
 # IMPLEMENTED METHODS
 
@@ -93,6 +96,8 @@ The RPC methods currently implemented are:
 * `eth_sendTransaction`
 * `eth_sendRawTransaction`
 * `eth_sign`
+* `eth_subscribe` (only for websocket connections. "syncing" subscriptions are not yet supported)
+* `eth_unsubscribe` (only for websocket connections. "syncing" subscriptions are not yet supported)
 * `eth_syncing`
 * `eth_uninstallFilter`
 * `net_listening`
