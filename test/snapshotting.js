@@ -17,17 +17,17 @@ describe("Checkpointing / Reverting", function() {
   var snapshotId;
 
   function send(method, params, callback) {
-      if (typeof params == "function") {
-          callback = params;
-          params = [];
-      }
+    if (typeof params == "function") {
+      callback = params;
+      params = [];
+    }
 
-      provider.send({
-          jsonrpc: "2.0",
-          method: method,
-          params: params || [],
-          id: new Date().getTime()
-      }, callback);
+    provider.send({
+      jsonrpc: "2.0",
+      method: method,
+      params: params || [],
+      id: new Date().getTime()
+    }, callback);
   }
 
   before("create provider", function() {

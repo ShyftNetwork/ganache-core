@@ -103,41 +103,8 @@ describe('Time adjustment', function() {
 
           //@note: fixed the 18 second thing by mining right before this call.
           // inverted the "secondsJumped" since we're going backwards.
+
           assert(secondsJumped >= secondsToJump)
-          done()
-        })
-      })
-    })
-  })
-
-  before('get current time', function(done) {
-    send("evm_mine", function(err, result) {
-      if (err) return done(err);
-
-      web3.eth.getBlock('latest', function (err, block) {
-        if (err) return done(err)
-        timestampBeforeJump = block.timestamp
-        done()
-      })
-    });
-  })
-
-  it('should jump back 5 hours', function(done) {
-    // Adjust time
-    send("evm_decreaseTime", [secondsToJump], function(err, result) {
-      if (err) return done(err);
-
-      // Mine a block so new time is recorded.
-      send("evm_mine", function(err, result) {
-        if (err) return done(err);
-
-        web3.eth.getBlock('latest', function(err, block){
-          if(err) return done(err)
-          var secondsJumped = timestampBeforeJump - block.timestamp;
-
-          //@note: fixed the 18 second thing by mining right before this call.
-          // inverted the "secondsJumped" since we're going backwards.
-          assert(-secondsJumped >= secondsToJump)
           done()
         })
       })
