@@ -3,7 +3,7 @@ var assert = require('assert');
 var Ganache = require("../index.js");
 var fs = require("fs");
 var path = require("path");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 var to = require("../lib/utils/to");
 
 // Thanks solc. At least this works!

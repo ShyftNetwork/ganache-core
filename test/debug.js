@@ -3,7 +3,7 @@ var assert = require('assert');
 var Ganache = require("../index.js");
 var fs = require("fs");
 var path = require("path");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 
 // Thanks solc. At least this works!
 // This removes solc's overzealous uncaughtException event handler.

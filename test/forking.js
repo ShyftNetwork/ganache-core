@@ -4,7 +4,7 @@ var utils = require('ethereumjs-util');
 var assert = require('assert');
 var Ganache = require("../index.js");
 var fs = require("fs");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 var to = require("../lib/utils/to.js");
 var async = require("async");
 

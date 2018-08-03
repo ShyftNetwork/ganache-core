@@ -3,7 +3,7 @@ var Ganache = require("../index.js");
 var assert = require('assert');
 var temp = require("temp").track();
 var fs = require("fs");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 var memdown = require("memdown");
 
 // Thanks solc. At least this works!
