@@ -3,7 +3,7 @@ var Web3 = require('web3');
 var Ganache = require("../index.js");
 var assert = require('assert');
 var to = require("../lib/utils/to.js");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 
 // Thanks solc. At least this works!
 // This removes solc's overzealous uncaughtException event handler.
@@ -19,7 +19,7 @@ describe("Interval Mining", function() {
     this.timeout(5000);
 
     web3 = new Web3(Ganache.provider({
-      blocktime: 0.5, // seconds
+      blockTime: 0.5, // seconds
       mnemonic: mnemonic
     }));
 
@@ -46,7 +46,7 @@ describe("Interval Mining", function() {
     this.timeout(5000);
 
     web3 = new Web3(Ganache.provider({
-      blocktime: 0.25, // seconds
+      blockTime: 0.25, // seconds
       mnemonic: mnemonic
     }));
 
@@ -89,7 +89,7 @@ describe("Interval Mining", function() {
     this.timeout(5000);
 
     web3 = new Web3(Ganache.provider({
-      blocktime: 0.5, // seconds
+      blockTime: 0.5, // seconds
       mnemonic: mnemonic
     }));
 
@@ -153,7 +153,7 @@ describe("Interval Mining", function() {
     };
 
     web3 = new Web3(Ganache.provider({
-      blocktime: 0.5, // seconds
+      blockTime: 0.5, // seconds
       mnemonic: mnemonic,
       logger: logger
     }));

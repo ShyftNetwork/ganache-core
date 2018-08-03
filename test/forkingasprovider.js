@@ -1,5 +1,5 @@
 var Ganache = require("../index.js");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 var to = require("../lib/utils/to.js");
 var async = require("async");
 var Web3 = require('web3');

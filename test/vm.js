@@ -3,7 +3,7 @@ var Transaction = require('ethereumjs-tx');
 var utils = require('ethereumjs-util');
 var assert = require('assert');
 var Ganache = require("../index.js");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 var fs = require("fs");
 var to = require("../lib/utils/to");
 
@@ -19,7 +19,7 @@ var logger = {
 
 var web3 = new Web3();
 web3.setProvider(Ganache.provider({
-  /*blocktime: 100,*/
+  /*blockTime: 100,*/
   logger: logger,
   seed: "1337"
 }));
@@ -51,7 +51,6 @@ describe("revert opcode", function() {
   it("should return a transaction receipt with status 0 on REVERT", function() {
     var revertCode = testContext.revertContract.binary;
     var revertAbi = JSON.parse(testContext.revertContract.abi);
-    var callCount = 0;
 
     var RevertContract = new web3.eth.Contract(revertAbi);
     RevertContract._code = revertCode;
@@ -65,7 +64,7 @@ describe("revert opcode", function() {
         return instance.methods.alwaysReverts(5).send({ from: testContext.accounts[0] })
       })
       .catch(function(err){
-        assert.equal(err.results[err.hashes[0]].error, "revert", "Expected error result not returned.");
+        assert.equal(err.results[err.hashes[0]].error, "revert (@shyftnetwork)", "Expected error result not returned.");
         return web3.eth.getTransactionReceipt(err.hashes[0])
       })
       .then(function(receipt) {

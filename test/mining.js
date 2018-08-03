@@ -3,7 +3,7 @@ var Web3 = require('web3');
 var Ganache = require("../index.js");
 var assert = require('assert');
 var to = require("../lib/utils/to.js");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 
 // Thanks solc. At least this works!
 // This removes solc's overzealous uncaughtException event handler.

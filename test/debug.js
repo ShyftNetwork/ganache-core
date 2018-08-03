@@ -3,7 +3,7 @@ var assert = require('assert');
 var Ganache = require("../index.js");
 var fs = require("fs");
 var path = require("path");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 
 // Thanks solc. At least this works!
 // This removes solc's overzealous uncaughtException event handler.
@@ -108,7 +108,7 @@ describe("Debug", function() {
 
         assert.equal(lastop.op, "STOP");
         assert.equal(lastop.gasCost, 1);
-        assert.equal(lastop.pc, 141);
+        assert.equal(lastop.pc, 145);
         assert.equal(lastop.storage['0000000000000000000000000000000000000000000000000000000000000000'], '000000000000000000000000000000000000000000000000000000000000001a')
         assert.equal(lastop.storage['0000000000000000000000000000000000000000000000000000000000000001'], '000000000000000000000000000000000000000000000000000000000000001f')
 

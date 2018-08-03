@@ -3,7 +3,7 @@ var assert = require('assert');
 var Ganache = require("../index.js");
 var fs = require("fs");
 var path = require("path");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 var to = require("../lib/utils/to")
 
 // Thanks solc. At least this works!
@@ -26,6 +26,7 @@ describe("Transaction rejection", function() {
   var EstimateGasContractAddress;
   var estimateGasInstance;
   var deploymentReceipt;
+  var estimateGasContractAddress;
   var source = fs.readFileSync(path.join(__dirname, "EstimateGas.sol"), "utf8");
 
   before("get accounts", function(done) {
@@ -144,7 +145,7 @@ describe("Transaction rejection", function() {
       } else if (response.result) {
         web3.eth.getTransactionReceipt(response.result)
           .then((result) => {
-            if (to.number(result.status) == 0) { 
+            if (to.number(result.status) == 0) {
               return done(new Error('TX rejections should return error, but returned receipt with zero status instead'))
             } else {
               return done(new Error(`TX should have rejected prior to running. Instead transaction ran successfully (receipt.status == ${to.number(result.status)})`))
@@ -158,4 +159,3 @@ describe("Transaction rejection", function() {
     })
   }
 })
-
