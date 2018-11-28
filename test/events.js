@@ -4,7 +4,7 @@ var Ganache = require(process.env.TEST_BUILD
   ? "../build/ganache.core." + process.env.TEST_BUILD + ".js"
   : "../index.js");
 var assert = require("assert");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 
 var source =
   "                      \n" +

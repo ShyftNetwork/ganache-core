@@ -6,7 +6,7 @@ const assert = require("assert");
 const Ganache = require(process.env.TEST_BUILD
   ? "../build/ganache.core." + process.env.TEST_BUILD + ".js"
   : "../index.js");
-const solc = require("solc");
+const solc = require("@shyftnetwork/shyft_solc");
 const fs = require("fs");
 const to = require("../lib/utils/to");
 const _ = require("lodash");

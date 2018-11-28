@@ -1,5 +1,5 @@
 const fs = require("fs");
-const solc = require("solc");
+const solc = require("@shyftnetwork/shyft_solc");
 const path = require("path");
 
 async function compileAndDeploy(contractPath, contractName, web3) {

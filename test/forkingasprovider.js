@@ -1,7 +1,7 @@
 var Ganache = require(process.env.TEST_BUILD
   ? "../build/ganache.core." + process.env.TEST_BUILD + ".js"
   : "../index.js");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 var Web3 = require("web3");
 var fs = require("fs");
 var assert = require("assert");

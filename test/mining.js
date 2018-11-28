@@ -5,7 +5,7 @@ var Ganache = require(process.env.TEST_BUILD
   : "../index.js");
 var assert = require("assert");
 var to = require("../lib/utils/to.js");
-var solc = require("solc");
+var solc = require("@shyftnetwork/shyft_solc");
 var pify = require("pify");
 
 // Thanks solc. At least this works!

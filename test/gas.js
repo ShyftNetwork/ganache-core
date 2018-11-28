@@ -5,7 +5,7 @@ const Ganache = require(process.env.TEST_BUILD
   : "../index.js");
 const fs = require("fs");
 const path = require("path");
-const solc = require("solc");
+const solc = require("@shyftnetwork/shyft_solc");
 const to = require("../lib/utils/to.js");
 const pify = require("pify");
 const RSCLEAR_REFUND = 15000;
