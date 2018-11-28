@@ -6,5 +6,6 @@ TODO
 .DS_Store
 .tern-port
 .vscode
-yarn.lock
 .idea/
+build
+npm-shrinkwrap.json.bak
