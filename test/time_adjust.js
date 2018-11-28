@@ -16,7 +16,6 @@ describe("Time adjustment", function() {
   var secondsToJump = 5 * 60 * 60;
 
   var timestampBeforeJump;
-  var timestampBeforeJumpBack;
 
   function send(method, params, callback) {
     if (typeof params === "function") {
