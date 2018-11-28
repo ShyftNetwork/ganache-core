@@ -1,6 +1,6 @@
 {
-  "name": "ganache-core",
-  "version": "2.3.1",
+  "name": "@shyftnetwork/shyft_ganache-core",
+  "version": "2.3.0",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -105,6 +105,71 @@
       "dev": true,
       "requires": {
         "any-observable": "^0.3.0"
+      }
+    },
+    "@shyftnetwork/shyft_ethereumjs-vm": {
+      "version": "2.4.0",
+      "resolved": "https://registry.npmjs.org/@shyftnetwork/shyft_ethereumjs-vm/-/shyft_ethereumjs-vm-2.4.0.tgz",
+      "integrity": "sha512-ghu4tcqBEM5sOAp9YhTq8dFhlmrZgnDrfMdrpKN/FwKAlBEGd8N6fY8Ke8QpyWQ11iYw9aikLWdk+TeSvBfHxg==",
+      "requires": {
+        "async": "^2.1.2",
+        "async-eventemitter": "^0.2.2",
+        "ethereumjs-account": "^2.0.3",
+        "ethereumjs-block": "~1.7.0",
+        "ethereumjs-common": "~0.4.0",
+        "ethereumjs-util": "^5.2.0",
+        "fake-merkle-patricia-tree": "^1.0.1",
+        "functional-red-black-tree": "^1.0.1",
+        "merkle-patricia-tree": "^2.1.2",
+        "rustbn.js": "~0.2.0",
+        "safe-buffer": "^5.1.1"
+      },
+      "dependencies": {
+        "ethereum-common": {
+          "version": "0.2.0",
+          "resolved": "https://registry.npmjs.org/ethereum-common/-/ethereum-common-0.2.0.tgz",
+          "integrity": "sha512-XOnAR/3rntJgbCdGhqdaLIxDLWKLmsZOGhHdBKadEr6gEnJLH52k93Ou+TUdFaPN3hJc3isBZBal3U/XZ15abA=="
+        },
+        "ethereumjs-block": {
+          "version": "1.7.1",
+          "resolved": "http://registry.npmjs.org/ethereumjs-block/-/ethereumjs-block-1.7.1.tgz",
+          "integrity": "sha512-B+sSdtqm78fmKkBq78/QLKJbu/4Ts4P2KFISdgcuZUPDm9x+N7qgBPIIFUGbaakQh8bzuquiRVbdmvPKqbILRg==",
+          "requires": {
+            "async": "^2.0.1",
+            "ethereum-common": "0.2.0",
+            "ethereumjs-tx": "^1.2.2",
+            "ethereumjs-util": "^5.0.0",
+            "merkle-patricia-tree": "^2.1.2"
+          }
+        }
+      }
+    },
+    "@shyftnetwork/shyft_solc": {
+      "version": "0.4.28",
+      "resolved": "https://registry.npmjs.org/@shyftnetwork/shyft_solc/-/shyft_solc-0.4.28.tgz",
+      "integrity": "sha512-E/j6ZqkA7QK0ysOaMyNQgdoMftQg2gzDi5kJ8Rh8/61D1Qi2VFAyfIzSc4+Lez3rwYlJVMo0qWFDHsRtIz4olg==",
+      "dev": true,
+      "requires": {
+        "fs-extra": "^0.30.0",
+        "memorystream": "^0.3.1",
+        "require-from-string": "^1.1.0",
+        "semver": "^5.3.0",
+        "yargs": "^4.7.1"
+      },
+      "dependencies": {
+        "fs-extra": {
+          "version": "0.30.0",
+          "resolved": "http://registry.npmjs.org/fs-extra/-/fs-extra-0.30.0.tgz",
+          "integrity": "sha1-8jP/zAjU2n1DLapEl3aYnbHfk/A=",
+          "dev": true,
+          "requires": {
+            "graceful-fs": "^4.1.2",
+            "jsonfile": "^2.1.0",
+            "klaw": "^1.0.0",
+            "path-is-absolute": "^1.0.0",
+            "rimraf": "^2.2.8"
+          }
+        }
       }
     },
     "@webassemblyjs/ast": {
