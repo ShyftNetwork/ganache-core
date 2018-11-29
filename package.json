@@ -1,6 +1,6 @@
 {
   "name": "@shyftnetwork/shyft_ganache-core",
-  "version": "2.3.0",
+  "version": "2.2.0",
   "main": "./index.js",
   "engines": {
     "node": ">=8.9.0"
